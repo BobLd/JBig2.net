@@ -25,6 +25,6 @@ if (dec.NumberOfPages > 0)
 
 While the project targets framework 4.8, it will work with older frameworks, possibly as far back as 1.0.
 
-## About the library
+## About the code
 
-This was originally written for JPedal, back when JPedal was BSD licensed. Since then the JPedal project has shifted to a LGPL license. This C# port retains the original BSD license.
+This was originally written for [JPedal](https://github.com/Lonzak/OpenViewerFX/tree/master/src/main/java/org/jpedal/jbig2).
