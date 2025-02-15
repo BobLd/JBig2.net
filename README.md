@@ -1,6 +1,6 @@
 # JBig2.net
 
-This is a C# library for decoding JBig2 images. These type of images are mostly encountered in PDF files.
+This is a C# library for decoding JBig2 images. This type of images are mostly encountered in PDF files.
 
 ## Usage
 
