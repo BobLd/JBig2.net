@@ -1,0 +1,117 @@
+﻿#region Licsens
+/**
+* ===========================================
+* Java Pdf Extraction Decoding Access Library
+* ===========================================
+*
+* Project Info:  http://www.jpedal.org
+* (C) Copyright 1997-2008, IDRsolutions and Contributors.
+* Main Developer: Simon Barnett
+*
+* 	This file is part of JPedal
+*
+* Copyright (c) 2008, IDRsolutions
+* All rights reserved.
+*
+* Redistribution and use in source and binary forms, with or without
+* modification, are permitted provided that the following conditions are met:
+*     * Redistributions of source code must retain the above copyright
+*       notice, this list of conditions and the following disclaimer.
+*     * Redistributions in binary form must reproduce the above copyright
+*       notice, this list of conditions and the following disclaimer in the
+*       documentation and/or other materials provided with the distribution.
+*     * Neither the name of the IDRsolutions nor the
+*       names of its contributors may be used to endorse or promote products
+*       derived from this software without specific prior written permission.
+*
+* THIS SOFTWARE IS PROVIDED BY IDRsolutions ``AS IS'' AND ANY
+* EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+* DISCLAIMED. IN NO EVENT SHALL IDRsolutions BE LIABLE FOR ANY
+* DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+* (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+* ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+* SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*
+* Other JBIG2 image decoding implementations include
+* jbig2dec (http://jbig2dec.sourceforge.net/)
+* xpdf (http://www.foolabs.com/xpdf/)
+* 
+* The final draft JBIG2 specification can be found at http://www.jpeg.org/public/fcd14492.pdf
+* 
+* All three of the above resources were used in the writing of this software, with methodologies,
+* processes and inspiration taken from all three.
+*
+* ---------------
+* TextRegionFlags.java
+* ---------------
+*/
+#endregion
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Text;
+
+using JBig2.Decoders;
+
+namespace JBig2.Seg.Region.Text
+{
+    internal class TextRegionFlags : Flags
+    {
+        #region Variables and properties
+
+        public static readonly String SB_HUFF = "SB_HUFF";
+        public static readonly String SB_REFINE = "SB_REFINE";
+        public static readonly String LOG_SB_STRIPES = "LOG_SB_STRIPES";
+        public static readonly String REF_CORNER = "REF_CORNER";
+        public static readonly String TRANSPOSED = "TRANSPOSED";
+        public static readonly String SB_COMB_OP = "SB_COMB_OP";
+        public static readonly String SB_DEF_PIXEL = "SB_DEF_PIXEL";
+        public static readonly String SB_DS_OFFSET = "SB_DS_OFFSET";
+        public static readonly String SB_R_TEMPLATE = "SB_R_TEMPLATE";
+
+        #endregion
+
+        public override void setFlags(int flagsAsInt)
+        {
+            this.flagsAsInt = flagsAsInt;
+
+            /** extract SB_HUFF */
+            flags.Add(SB_HUFF, flagsAsInt & 1);
+
+            /** extract SB_REFINE */
+            flags.Add(SB_REFINE, (flagsAsInt >> 1) & 1);
+
+            /** extract LOG_SB_STRIPES */
+            flags.Add(LOG_SB_STRIPES, (flagsAsInt >> 2) & 3);
+
+            /** extract REF_CORNER */
+            flags.Add(REF_CORNER, (flagsAsInt >> 4) & 3);
+
+            /** extract TRANSPOSED */
+            flags.Add(TRANSPOSED, (flagsAsInt >> 6) & 1);
+
+            /** extract SB_COMB_OP */
+            flags.Add(SB_COMB_OP, (flagsAsInt >> 7) & 3);
+
+            /** extract SB_DEF_PIXEL */
+            flags.Add(SB_DEF_PIXEL, (flagsAsInt >> 9) & 1);
+
+            int sOffset = (flagsAsInt >> 10) & 0x1f;
+            if ((sOffset & 0x10) != 0)
+            {
+                sOffset |= -1 - 0x0f;
+            }
+            flags.Add(SB_DS_OFFSET, sOffset);
+
+            /** extract SB_R_TEMPLATE */
+            flags.Add(SB_R_TEMPLATE, (flagsAsInt >> 15) & 1);
+#if DEBUG
+            if (JBIG2StreamDecoder.DEBUG)
+                Debug.WriteLine(flags);
+#endif
+        }
+    }
+}
