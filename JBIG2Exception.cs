@@ -1,4 +1,4 @@
-﻿#region Licsens
+﻿#region License
 /**
 * ===========================================
 * Java Pdf Extraction Decoding Access Library
@@ -49,7 +49,6 @@
 * ---------------
 */
 #endregion
-using System;
 
 namespace JBig2
 {

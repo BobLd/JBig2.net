@@ -1,4 +1,4 @@
-﻿#region Licsens
+﻿#region License
 /**
 * ===========================================
 * Java Pdf Extraction Decoding Access Library

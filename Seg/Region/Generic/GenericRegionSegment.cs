@@ -1,4 +1,4 @@
-﻿#region Licsens
+﻿#region License
 /**
 * ===========================================
 * Java Pdf Extraction Decoding Access Library
@@ -49,11 +49,7 @@
 * ---------------
 */
 #endregion
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
-
 using JBig2.Decoders;
 using JBig2.Image;
 using JBig2.Seg.PageInformation;

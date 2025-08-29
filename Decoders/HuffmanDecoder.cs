@@ -1,4 +1,4 @@
-﻿#region Licsens
+﻿#region License
 /**
 * ===========================================
 * Java Pdf Extraction Decoding Access Library
@@ -49,7 +49,7 @@
 * ---------------
 */
 #endregion
-using JBig2.IO;
+using StreamReader = JBig2.IO.StreamReader;
 
 namespace JBig2.Decoders
 {

@@ -1,4 +1,4 @@
-﻿#region Licsens
+﻿#region License
 /**
 * ===========================================
 * Java Pdf Extraction Decoding Access Library
@@ -54,7 +54,6 @@ using JBig2.Image;
 using JBig2.Seg.PageInformation;
 using JBig2.Seg.SymbolDictionary;
 using JBig2.Util;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace JBig2.Seg.Region.Text

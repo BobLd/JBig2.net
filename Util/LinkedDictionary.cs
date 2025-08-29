@@ -1,8 +1,5 @@
 ﻿//From: http://www.pcreview.co.uk/forums/c-equivalent-java-util-linkedhashmap-t2134948.html
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 
 namespace JBig2.Util
 {

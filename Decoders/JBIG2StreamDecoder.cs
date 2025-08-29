@@ -1,4 +1,4 @@
-﻿#region Licsens
+﻿#region License
 /**
 * ===========================================
 * Java Pdf Extraction Decoding Access Library
@@ -50,7 +50,6 @@
 */
 #endregion
 using JBig2.Image;
-using JBig2.IO;
 using JBig2.Seg;
 using JBig2.Seg.Extensions;
 using JBig2.Seg.PageInformation;
@@ -62,9 +61,8 @@ using JBig2.Seg.Region.Text;
 using JBig2.Seg.Stripes;
 using JBig2.Seg.SymbolDictionary;
 using JBig2.Util;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
+using StreamReader = JBig2.IO.StreamReader;
 
 namespace JBig2.Decoders
 {

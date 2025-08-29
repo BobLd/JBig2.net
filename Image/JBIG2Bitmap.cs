@@ -1,4 +1,4 @@
-﻿#region Licsens
+﻿#region License
 /**
 * ===========================================
 * Java Pdf Extraction Decoding Access Library
@@ -50,7 +50,6 @@
 */
 #endregion
 //#define CACHE_BYTE
-using System;
 using JBig2.Decoders;
 using JBig2.Util;
 using System.Collections;
