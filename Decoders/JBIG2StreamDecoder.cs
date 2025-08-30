@@ -83,7 +83,7 @@ namespace JBig2.Decoders
         private List<Segment> segments = new List<Segment>();
         private List<JBIG2Bitmap> bitmaps = new List<JBIG2Bitmap>();
 
-        private byte[] globalData;
+        private Memory<byte>? globalData;
 
         private ArithmeticDecoder arithmeticDecoder;
 
@@ -122,12 +122,12 @@ namespace JBig2.Decoders
             return _noOfPages;
         }
 
-        public void setGlobalData(byte[] data)
+        public void setGlobalData(Memory<byte> data)
         {
             globalData = data;
         }
 
-        public void decodeJBIG2(byte[] data)
+        public void decodeJBIG2(Memory<byte> data)
         {
             _reader = new StreamReader(data);
 
@@ -152,10 +152,10 @@ namespace JBig2.Decoders
                 _noOfPages = 1;
 
                 /** check to see if there is any global data to be read */
-                if (globalData != null)
+                if (globalData.HasValue)
                 {
                     /** set the reader to read from the global data */
-                    _reader = new StreamReader(globalData);
+                    _reader = new StreamReader(globalData.Value);
 
                     huffmanDecoder = new HuffmanDecoder(_reader);
                     mmrDecoder = new MMRDecoder(_reader);

@@ -1157,9 +1157,7 @@ namespace JBig2.Image
 
         private void setPixel(int col, int row, BitArray data, int value)
         {
-            int index = (row * width) + col;
-
-            data.Set(index, value == 1);
+            data.Set(Math.Min(data.Count - 1, (row * width) + col), value == 1);
         }
 
         public void setPixel(int col, int row, int value)
@@ -1169,7 +1167,7 @@ namespace JBig2.Image
 
         public int getPixel(int col, int row)
         {
-            return data.Get((row * width) + col) ? 1 : 0;
+            return data.Get(Math.Min(data.Count - 1, (row * width) + col)) ? 1 : 0;
         }
 
         public void expand(int newHeight, int defaultPixel)

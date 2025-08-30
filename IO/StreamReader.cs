@@ -55,7 +55,7 @@ namespace JBig2.IO
     {
         #region Variables and properties
 
-        private byte[] _data;
+        private Memory<byte> _data;
 
         /// <summary>
         /// Bit pointer
@@ -76,7 +76,7 @@ namespace JBig2.IO
 
         #region Init
 
-        public StreamReader(byte[] data)
+        public StreamReader(Memory<byte> data)
         {
             _data = data;
         }
@@ -90,14 +90,14 @@ namespace JBig2.IO
 
         public byte ReadByte()
         {
-            return _data[_byte_ptr++];
+            return _data.Span[_byte_ptr++];
         }
 
         public void ReadByte(ushort[] buf)
         {
             for (int i = 0; i < buf.Length; i++)
             {
-                buf[i] = _data[_byte_ptr++];
+                buf[i] = _data.Span[_byte_ptr++];
             }
         }
 
@@ -105,7 +105,7 @@ namespace JBig2.IO
         {
             for (int i = 0; i < buf.Length; i++)
             {
-                buf[i] = _data[_byte_ptr++];
+                buf[i] = _data.Span[_byte_ptr++];
             }
         }
 

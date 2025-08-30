@@ -6,10 +6,11 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<RootNamespace>JBig2</RootNamespace>
+		<Version>0.1.11.1-local20250829.3</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Folder Include="Properties\" />
+		<PackageReference Include="PdfPig" Version="0.1.11" />
 	</ItemGroup>
 
 </Project>

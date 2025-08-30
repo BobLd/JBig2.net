@@ -109,13 +109,13 @@ namespace JBig2
         /// Pass any global data in here.  Call this method before decodeJBIG2(...)
         /// </summary>
         /// <param name="data">The global data</param>
-        public void setGlobalData(byte[] data) {
+        public void setGlobalData(Memory<byte> data) {
 		    streamDecoder.setGlobalData(data);
 	    }
 
         #endregion
 
-        public void decodeJBIG2(byte[] data)
+        public void decodeJBIG2(Memory<byte> data)
         {
             streamDecoder.decodeJBIG2(data);
         }
